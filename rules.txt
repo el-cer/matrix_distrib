@@ -1,0 +1,21 @@
+# GIT SHORT WORKFLOW (rebase version)
+
+git checkout main
+git pull
+
+git checkout -b feature/<feature-name>
+# code...
+git add .
+git commit -m "✨ Commit message"
+git push -u origin feature/<feature-name>
+
+# update and rebase before merge
+git fetch origin
+git rebase origin/main
+
+git checkout main
+git pull
+git rebase origin/feature/<feature-name>
+
+git branch -d feature/<feature-name>
+git push origin --delete feature/<feature-name>
