@@ -1,0 +1,12 @@
+# Build files
+/build/
+*.exe
+*.obj
+*.o
+
+# IDE metadata
+.vscode/
+.idea/
+
+# Temporary outputs
+/outputs/
