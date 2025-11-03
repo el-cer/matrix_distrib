@@ -1,21 +1,30 @@
-# GIT SHORT WORKFLOW (rebase version)
-
+# 1️⃣ Always up-to-date main
 git checkout main
-git pull
+git pull origin main
 
+# 2️⃣ Create feature branch
 git checkout -b feature/<feature-name>
-# code...
+
+# 3️⃣ Work and commit
 git add .
-git commit -m "Commit message"
+git commit -m "feat: <short description>"
 git push -u origin feature/<feature-name>
 
-# update and rebase before merge
+# 4️⃣ Before merge, rebase feature on main
 git fetch origin
 git rebase origin/main
 
-git checkout main
-git pull
-git rebase origin/feature/<feature-name>
+# 5️⃣ Resolve conflicts if any
+# then test locally (pytest, flake8, etc.)
 
+# 6️⃣ Merge feature back to main (fast-forward)
+git checkout main
+git pull origin main
+git merge feature/<feature-name>
+
+# 7️⃣ Push merged main
+git push origin main
+
+# 8️⃣ Cleanup
 git branch -d feature/<feature-name>
 git push origin --delete feature/<feature-name>
